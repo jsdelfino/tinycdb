@@ -40,8 +40,6 @@ INSTALLPROG = cdb
 # used for building shared libraries only
 CFLAGS_PIC = -fPIC
 CFLAGS_SHARED = -shared
-CFLAGS_SONAME = -Wl,--soname=
-CFLAGS_VSCRIPT = -Wl,--version-script=
 
 CP = cp
 
@@ -85,7 +83,6 @@ $(SHAREDLIB): $(LIB_OBJS_PIC) $(LIBMAP)
 	-rm -f $(SOLIB)
 	ln -s $@ $(SOLIB)
 	$(CC) $(CFLAGS) $(CFLAGS_SHARED) -o $@ \
-	 $(CFLAGS_SONAME)$(SHAREDLIB) $(CFLAGS_VSCRIPT)$(LIBMAP) \
 	 $(LIB_OBJS_PIC)
 
 cdb: cdb.o $(CDB_USELIB)
