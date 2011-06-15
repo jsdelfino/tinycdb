@@ -1,0 +1,7 @@
+cdb
+cdb-shared
+*.o
+*.lo
+*.so
+*.so.*
+*.a
